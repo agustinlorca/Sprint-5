@@ -1,6 +1,5 @@
 from .cuenta import Cuenta
 from .direccion import Direccion
-from ..evento import Evento
 
 BLACK = "BLACK"
 GOLD = "GOLD"

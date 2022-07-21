@@ -1,6 +1,6 @@
 from .razon import Razon
-from ..cliente import Cliente
-from ..evento import Evento
+from cliente.cliente import Cliente
+from evento import Evento
 
 class RazonCompraDolar(Razon):
     

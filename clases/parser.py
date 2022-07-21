@@ -1,10 +1,15 @@
+from cliente.cliente import CLASSIC, BLACK, GOLD, Cliente
+from cliente.cliente_black import ClienteBlack
+from cliente.cliente_gold import ClienteGold
+from cliente.cliente_classic import ClienteClassic
+from cliente.builderCliente import BuilderCliente
+from evento import Evento
 import json
-from cliente.cliente import Cliente
 
 
 class Parser:
 
-    def execute(self,file_name:str) -> Tuple[Cliente,'list[Evento]']:
+    def execute(self,file_name:str) -> tuple[Cliente,'list[Evento]']:
         transacciones= []
         with open(file_name) as jsonFile:
             eventos = json.load(jsonFile)
@@ -17,6 +22,14 @@ class Parser:
         tipo = datos["tipo"]
 
         if (tipo == CLASSIC):
-            cliente = ClienteCLassic(**BuilderCliente.getDatosClienteClassic())
+            cliente = ClienteClassic(**BuilderCliente.getDatosClienteClassic())
         elif (tipo == GOLD):
             cliente = ClienteGold(**BuilderCliente.getDatosClienteGold())
+        elif (tipo == BLACK):
+            cliente = ClienteBlack(**BuilderCliente.getDatosClienteBlack())
+        else:
+            raise Exception("Tipo de cliente no existe")
+        
+        cliente.inicializar(datos)
+        
+        return cliente
