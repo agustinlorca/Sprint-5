@@ -9,7 +9,3 @@ class BuilderCliente:
       
     def getDatosClienteBlack(self):
         return cliente_black
-    
-
-
-
