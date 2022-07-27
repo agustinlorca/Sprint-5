@@ -1,8 +1,14 @@
 from .cliente import Cliente
 
 class ClienteBlack(Cliente):
-    def __init__(self,**kwargs) -> None:
-        super(ClienteBlack,self).__init__(**kwargs)
+    def __init__(self):
+        self.limite_extraccion_diario = 100000
+        self.limite_transferencia_recibida = None
+        self.costo_transferencias =None
+        self.saldo_descubierto_disponible =5
+        self.total_tarjetas_credito =2
+        self.total_chequeras =10000
+    
 
     def puede_crear_chequera(self) -> bool:
         return True

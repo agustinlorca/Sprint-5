@@ -6,8 +6,8 @@ GOLD = "GOLD"
 CLASSIC ="CLASSIC"
 
 class Cliente:
-    def __init__(self, **kwargs) -> None:
-        self.cuenta = Cuenta(**kwargs)
+    def __init__(self,cuenta):
+        self.cuenta = Cuenta(cuenta)
     
     def inicializar(self, datos):
         self.numero = datos["numero"]
